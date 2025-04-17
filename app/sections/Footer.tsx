@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { motion } from "framer-motion";
-import AnimatedBody from "../animations/AnimatedBody";
-import React from "react";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import React from 'react';
+import AnimatedBody from '../animations/AnimatedBody';
 
 const Footer = () => {
     return (
@@ -10,7 +10,8 @@ const Footer = () => {
             initial="initial"
             animate="animate"
         >
-          </motion.section>
+            Hii
+        </motion.section>
     );
 };
 

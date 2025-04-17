@@ -21,9 +21,17 @@
       "version": "detect"
     },
     "import/resolver": {
-      "typescript": { "project": "./" }
+      "typescript": {
+        "project": "./"
+      }
     }
   },
+  "ignorePatterns": [
+    "next.config.js",
+    "postcss.config.js",
+    "stylelint.config.js",
+    "tailwind.config.js"
+  ],
   "plugins": [
     "react-hooks",
     "react",
@@ -38,13 +46,44 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:import/errors",
-    "plugin:import/warnings",
-    "prettier"
+    "plugin:import/warnings"
   ],
   "rules": {
     "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
     "@next/next/no-img-element": "off",
     "@next/next/no-html-link-for-pages": "off",
+    "indent": "off",
+    "semi": ["error", "always"],
+    "prefer-const": "off",
+    "array-callback-return": ["error", { "allowImplicit": true }],
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/prefer-namespace-keyword": "off",
+    "@typescript-eslint/adjacent-overload-signatures": "off",
+    "@typescript-eslint/no-inferrable-types": [
+      "warn",
+      { "ignoreParameters": true, "ignoreProperties": true }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "vars": "all", "args": "none", "ignoreRestSiblings": false }
+    ],
+    "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      {
+        "allowNumber": true,
+        "allowBoolean": true,
+        "allowAny": false,
+        "allowNullish": false,
+        "allowRegExp": true
+      }
+    ],
     "unicorn/escape-case": "error",
     "unicorn/number-literal-case": "error",
     "unicorn/empty-brace-spaces": "error",
@@ -81,49 +120,17 @@
     "unicorn/no-useless-promise-resolve-reject": "error",
     "unicorn/no-useless-undefined": "error",
     "unicorn/throw-new-error": "error",
-    "prefer-const": "off",
-    "array-callback-return": ["error", { "allowImplicit": true }],
-    "indent": ["error", 4, { "SwitchCase": 1 }],
-    "semi": ["error", "always"],
-    "@typescript-eslint/no-namespace": "off",
-    "@typescript-eslint/unbound-method": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/prefer-namespace-keyword": "off",
-    "@typescript-eslint/adjacent-overload-signatures": "off",
-    "@typescript-eslint/no-inferrable-types": ["warn", { "ignoreParameters": true, "ignoreProperties": true }],
-    "@typescript-eslint/no-unused-vars": ["warn", { "vars": "all", "args": "none", "ignoreRestSiblings": false }],
-    "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
-    "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/restrict-template-expressions": ["error", {
-      "allowNumber": true,
-      "allowBoolean": true,
-      "allowAny": false,
-      "allowNullish": false,
-      "allowRegExp": true
-    }]
+    "import/order": ["error"]
   },
   "overrides": [
     {
-      "files": ["*.js"],
+      "files": ["*.js", "*.cjs"],
+      "parser": "espree",
+      "parserOptions": {
+        "sourceType": "module"
+      },
       "rules": {
-        "@typescript-eslint/no-var-requires": "error",
-        "@typescript-eslint/explicit-function-return-type": "error",
-        "@typescript-eslint/ban-types": [
-          "error",
-          {
-            "types": {
-              "{}": false
-            }
-          }
-        ],
-        "react/prop-types": ["off"],
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-filename-extension": [
-          "error",
-          { "extensions": [".jsx", ".tsx"] }
-        ],
-        "import/order": ["error"]
+        "@typescript-eslint/no-var-requires": "off"
       }
     }
   ]

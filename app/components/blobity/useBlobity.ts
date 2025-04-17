@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import Blobity, { Options } from "./Blobity";
+import { useEffect, useRef } from 'react';
+import Blobity, { Options } from './Blobity';
 
 const useBlobity = (options: Partial<Options>) => {
     const instance = useRef<Blobity | null>(null);

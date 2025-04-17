@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
 type GrainProps = {
-  baseFrequency?: string;
-  numOctaves?: number;
-  w?: number | string;
-  h?: number | string;
+    baseFrequency?: string;
+    numOctaves?: number;
+    w?: number | string;
+    h?: number | string;
 };
 
 const Grain: React.FC<GrainProps> = ({
-    baseFrequency = "9",
+    baseFrequency = '9',
     numOctaves = 5,
-    w = "100%",
-    h = "100%",
+    w = '100%',
+    h = '100%',
 }) => {
-    const viewBox = "0 0 300 300";
+    const viewBox = '0 0 300 300';
 
     return (
         <svg

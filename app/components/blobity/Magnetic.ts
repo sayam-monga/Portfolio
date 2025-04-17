@@ -1,7 +1,7 @@
 /// <reference lib="dom" />
 
-import Kinet from "kinet";
-import throttle from "lodash/throttle";
+import Kinet from 'kinet';
+import throttle from 'lodash/throttle';
 
 export default class Magnetic {
     private readonly kinetInstance: Kinet;
@@ -16,7 +16,7 @@ export default class Magnetic {
 
     constructor(element: HTMLElement) {
         this.kinetInstance = new Kinet({
-            names: ["x", "y"],
+            names: ['x', 'y'],
             acceleration: 0.1,
             friction: 0.4,
         });
@@ -33,33 +33,31 @@ export default class Magnetic {
         this.maxDistanceY = this.element.offsetWidth / 2;
 
         this.throttledMouseMove = throttle(this.mouseMove);
-        window.addEventListener("mousemove", this.throttledMouseMove, {
+        window.addEventListener('mousemove', this.throttledMouseMove, {
             passive: true,
         });
 
-        this.kinetInstance.on("tick", (instances) => {
+        this.kinetInstance.on('tick', instances => {
             this.element.style.transform = `translate3d(${instances.x.current}px, ${
                 instances.y.current
-            }px, 0) rotateY(${instances.x.current / 2}deg) rotateX(${
-                instances.y.current / 2
-            }deg)`;
+            }px, 0) rotateY(${instances.x.current / 2}deg) rotateX(${instances.y.current / 2}deg)`;
             this.onTick && this.onTick();
         });
 
-        this.kinetInstance.on("end", () => {
+        this.kinetInstance.on('end', () => {
             if (this.destroying) {
-                this.element.style.transform = "";
+                this.element.style.transform = '';
             }
         });
     }
 
     public destroy = () => {
-        window.removeEventListener("mousemove", this.throttledMouseMove);
+        window.removeEventListener('mousemove', this.throttledMouseMove);
 
         this.destroying = true;
 
-        this.kinetInstance.animate("x", 0);
-        this.kinetInstance.animate("y", 0);
+        this.kinetInstance.animate('x', 0);
+        this.kinetInstance.animate('y', 0);
     };
 
     private mouseMove = (event: MouseEvent) => {
@@ -85,11 +83,11 @@ export default class Magnetic {
             const percentX = x / this.maxDistanceX;
             const percentY = y / this.maxDistanceY;
 
-            this.kinetInstance.animate("x", Math.round(20 * percentX));
-            this.kinetInstance.animate("y", Math.round(20 * percentY));
+            this.kinetInstance.animate('x', Math.round(20 * percentX));
+            this.kinetInstance.animate('y', Math.round(20 * percentY));
         } else {
-            this.kinetInstance.animate("x", 0);
-            this.kinetInstance.animate("y", 0);
+            this.kinetInstance.animate('x', 0);
+            this.kinetInstance.animate('y', 0);
         }
     }
 }

@@ -1,17 +1,16 @@
-import "./globals.css";
-import React, { ReactNode } from "react";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import './globals.css';
+import React, { ReactNode } from 'react';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
 const syne = Inter({
-    subsets: ["latin"],
-    display: "block",
-    weight: ["400", "500", "600", "700", "800"],
+    subsets: ['latin'],
+    display: 'block',
+    weight: ['400', '500', '600', '700', '800'],
 });
 
-
 type RootLayoutProps = {
-  children: ReactNode;
+    children: ReactNode;
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {

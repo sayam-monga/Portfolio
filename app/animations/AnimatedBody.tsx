@@ -1,18 +1,14 @@
-import { useEffect } from "react";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useEffect } from 'react';
+import { useAnimation, motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 type AnimatedBodyProps = {
-  text: string;
-  className?: string;
-  delay?: number;
+    text: string;
+    className?: string;
+    delay?: number;
 };
 
-export default function AnimatedBody({
-    text,
-    className,
-    delay,
-}: AnimatedBodyProps) {
+export default function AnimatedBody({ text, className, delay }: AnimatedBodyProps) {
     const ctrls = useAnimation();
 
     const { ref, inView } = useInView({
@@ -22,10 +18,10 @@ export default function AnimatedBody({
 
     useEffect(() => {
         if (inView) {
-            ctrls.start("visible");
+            ctrls.start('visible');
         }
         if (!inView) {
-            ctrls.start("hidden");
+            ctrls.start('hidden');
         }
     }, [ctrls, inView]);
 

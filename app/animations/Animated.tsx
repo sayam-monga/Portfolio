@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useAnimation, motion, Variants, Transition } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { IconType } from "react-icons";
+import React, { useEffect } from 'react';
+import { useAnimation, motion, Variants, Transition } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { IconType } from 'react-icons';
 
 type AnimatedProps = {
     className?: string;
@@ -14,11 +14,11 @@ type AnimatedProps = {
 const animatedVariants: Variants = {
     hidden: {
         opacity: 0,
-        y: "1em",
+        y: '1em',
     },
     visible: {
         opacity: 1,
-        y: "0em",
+        y: '0em',
     },
 };
 
@@ -37,9 +37,9 @@ const Animated: React.FC<AnimatedProps> = ({
 
     useEffect(() => {
         if (inView) {
-            controls.start("visible");
+            controls.start('visible');
         } else {
-            controls.start("hidden");
+            controls.start('hidden');
         }
     }, [controls, inView]);
 
@@ -64,7 +64,7 @@ const Animated: React.FC<AnimatedProps> = ({
                 return (
                     <motion.div
                         key={index}
-                        whileHover={{ scale: 1.1, color: "#ff5733" }} // Modify the color when hovering
+                        whileHover={{ scale: 1.1, color: '#ff5733' }} // Modify the color when hovering
                         whileTap={{ scale: 0.9 }}
                         style={{ width: iconSize, height: iconSize }}
                         data-blobity

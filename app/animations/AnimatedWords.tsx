@@ -1,10 +1,10 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 type AnimatedWordsProps = {
-  title: string;
-  style: string;
+    title: string;
+    style: string;
 };
 
 const AnimatedWords: React.FC<AnimatedWordsProps> = ({ title, style }) => {
@@ -17,10 +17,10 @@ const AnimatedWords: React.FC<AnimatedWordsProps> = ({ title, style }) => {
 
     useEffect(() => {
         if (inView) {
-            ctrls.start("animate");
+            ctrls.start('animate');
         }
         if (!inView) {
-            ctrls.start("initial");
+            ctrls.start('initial');
         }
     }, [ctrls, inView]);
 
@@ -42,7 +42,7 @@ const AnimatedWords: React.FC<AnimatedWordsProps> = ({ title, style }) => {
     return (
         <h1 aria-label={title}>
             <motion.span className={style} ref={ref}>
-                {title.split(" ").map((word, index) => (
+                {title.split(' ').map((word, index) => (
                     <motion.div
                         key={index}
                         initial="initial"
@@ -57,7 +57,7 @@ const AnimatedWords: React.FC<AnimatedWordsProps> = ({ title, style }) => {
                             className="-mb-4 inline-block overflow-hidden pt-1 sm:-mb-2 md:-mb-3 lg:-mb-4"
                             variants={letterAnimation}
                         >
-                            {word + "\u00A0"}
+                            {word + '\u00A0'}
                         </motion.span>
                     </motion.div>
                 ))}

@@ -1,13 +1,13 @@
-import { useEffect } from "react";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useEffect } from 'react';
+import { useAnimation, motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 type AnimatedTitleProps = {
-  text: string;
-  className: string;
-  wordSpace: string;
-  charSpace: string;
-  delay?: number;
+    text: string;
+    className: string;
+    wordSpace: string;
+    charSpace: string;
+    delay?: number;
 };
 
 export default function AnimatedTitle({
@@ -25,10 +25,10 @@ export default function AnimatedTitle({
 
     useEffect(() => {
         if (inView) {
-            ctrls.start("visible");
+            ctrls.start('visible');
         }
         if (!inView) {
-            ctrls.start("hidden");
+            ctrls.start('hidden');
         }
     }, [ctrls, inView]);
 
@@ -54,7 +54,7 @@ export default function AnimatedTitle({
 
     return (
         <h2 aria-label={text} className={className}>
-            {text.split(" ").map((word, index) => {
+            {text.split(' ').map((word, index) => {
                 return (
                     <motion.span
                         ref={ref}
@@ -69,7 +69,7 @@ export default function AnimatedTitle({
                         }}
                         className={`inline-block whitespace-nowrap ${wordSpace}`}
                     >
-                        {word.split("").map((character, index) => {
+                        {word.split('').map((character, index) => {
                             return (
                                 <motion.span
                                     aria-hidden="true"

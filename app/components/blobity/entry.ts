@@ -5,8 +5,7 @@
  */
 
 // this is here for webpack to expose Blobity as window.Blobity
-import Blobity from "./Blobity";
-
+import Blobity from './Blobity';
 
 const autoStart = document.querySelector(
     'script[src^="https://cdn.blobity.dev/by.js"]'
@@ -15,11 +14,11 @@ if (autoStart) {
     const url = new URL(autoStart.src);
     const params = url.searchParams;
 
-    if (params.get("autoStart") !== null) {
+    if (params.get('autoStart') !== null) {
         new Blobity({
-            licenseKey: params.get("licenseKey"),
+            licenseKey: params.get('licenseKey'),
         });
     }
 }
 
-export {default} from "./Blobity";
+export { default } from './Blobity';

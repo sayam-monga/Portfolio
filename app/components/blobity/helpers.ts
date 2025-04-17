@@ -23,9 +23,9 @@ export const extractRgbFromRgb = (rgb: string) => {
 };
 
 export const convertColor = (color: string) => {
-    if (color.includes("rgb")) {
+    if (color.includes('rgb')) {
         return extractRgbFromRgb(color);
-    } else if (color.startsWith("#")) {
+    } else if (color.startsWith('#')) {
         return extractRgbFromHex(color);
     }
 
